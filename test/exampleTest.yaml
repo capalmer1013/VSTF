@@ -1,0 +1,8 @@
+importDir: "../"  # this should be absolute in the real world
+moduleName: "exampleModule"
+tests:
+  test1: 1
+  test2: 2
+  test3: 'pie'
+  test4: 'applesauce'
+  testFail: 'fail'
