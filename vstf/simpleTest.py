@@ -6,6 +6,9 @@ import importlib
 
 
 class TestClass(unittest.TestCase):
+    def runTest(self):
+        pass
+
     def test_pretest(self):
         pass
 
@@ -31,4 +34,5 @@ def runTests(yamlFile, cwd=''):
         generateTestFunctions(testFunc, testConfig['tests'][testFunc], importModule)
 
     unittest.main()
+
 
