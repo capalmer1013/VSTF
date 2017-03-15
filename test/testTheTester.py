@@ -8,4 +8,4 @@ import os
 print __file__
 print os.getcwd()
 
-vstf.simpleTest.runTests('exampleTest.yaml', cwd=os.getcwd())
+vstf.simpleTest.runTests('exampleTest.yaml', cwd="/home/cpalmer/personalProjects/VSTF/test")

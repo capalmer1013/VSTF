@@ -5,17 +5,17 @@ import sys
 import importlib
 
 
-class testClass(unittest.TestCase):
-    def runTest(self):
-        # only for testing the test script
+class TestClass(unittest.TestCase):
+    def test_pretest(self):
         pass
 
 
-def generateTestFunctions(testInput, testOutput, message=None):
+def generateTestFunctions(testInput, testOutput, importModule, message=None):
     def tempMethod(self):
-        self.assertEqual(testInput(), testOutput, msg=message)
+        self.assertEqual(importModule.__dict__[testInput](), testOutput, msg=message)
 
-    setattr(testClass, 'test_'+testInput, tempMethod)
+    setattr(TestClass, 'test_'+testInput, tempMethod)
+
 
 def runTests(yamlFile, cwd=''):
     """
@@ -28,7 +28,7 @@ def runTests(yamlFile, cwd=''):
     importModule = importlib.import_module(testConfig['moduleName'])
 
     for testFunc in testConfig['tests']:
-        generateTestFunctions(testFunc, testConfig['tests'][testFunc])
+        generateTestFunctions(testFunc, testConfig['tests'][testFunc], importModule)
 
     unittest.main()
 
