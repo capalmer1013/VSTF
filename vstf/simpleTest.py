@@ -10,7 +10,7 @@ class TestClass(unittest.TestCase):
         pass
 
     def test_pretest(self):
-        pass
+        self.assertEqual('foo'.upper(), 'FOO')
 
 
 def generateTestFunctions(testInput, testOutput, importModule, message=None):
@@ -36,3 +36,6 @@ def runTests(yamlFile, cwd=''):
     unittest.main()
 
 
+
+if __name__ == "__main__":
+    unittest.main()
